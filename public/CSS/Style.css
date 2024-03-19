@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9; /* Azul claro */
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+#sidebar {
+    background-color: #343a40; /* Color gris oscuro */
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0; /* Ajuste para ocupar todo el espacio vertical */
+    left: 0;
+    transition: width 0.3s;
+    overflow-y: auto;
+    z-index: 1000; /* Ajuste el índice z para superponerse */
+}
+#sidebar .nav-link {
+    color: #fff;
+    padding: 10px 20px; 
+}
+
+#sidebar .nav-item {
+    margin-bottom: 35px; /* Espaciado inferior entre los elementos de navegación */
+}
+#content {
+    padding: 20px;
+    margin-left: 250px;
+    margin-top: 60px; /* Ajuste del margen superior para dejar espacio para la barra superior */
+    margin-bottom: 120px; /* Ajuste del margen inferior para dejar espacio para el pie de página */
+}
+
+
+
+
+.card {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-block {
+    margin-top: 10px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+footer.footer {
+    background-color: #343a40; /* Color gris oscuro */
+    color: #fff;
+    position: fixed; /* Fijamos el pie de página en la parte inferior */
+    bottom: 0;
+    width: calc(100% - 250px); /* Restamos el ancho de la barra lateral */
+    left: 250px; /* Ajustamos la posición para que quede al lado de la barra de la izquierda */
+    padding: 10px 0;
+    text-align: center;
+    z-index: 900; /* Aseguramos que el pie de página esté detrás de otros elementos */
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.navbar {
+    background-color: #343a40; /* Color gris oscuro */
+    z-index: 900; /* Aseguramos que la barra de navegación esté detrás */
+    width: calc(100% - 250px); /* Restamos el ancho de la barra lateral */
+    left: 250px; /* Ajustamos la posición */
+}
+
+#formulario-bancos {
+    display: none;
+    position: absolute; /* Cambiar de fixed a absolute */
+    top: 50%; /* Ajustar según sea necesario */
+    left: 50%; /* Ajustar según sea necesario */
+    transform: translate(-50%, -50%);
+}

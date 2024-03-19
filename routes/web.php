@@ -5,20 +5,34 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonasController;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite; // Importa la clase Socialite
+use Illuminate\Support\Facades\DB;
 
 
-Route::get('/', function () {
-    return view('login ');
-});
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
+Route::get('/', function () {
+    return view('login');
+});
+
 Route::get('/contabilidad', function () {
-    return view('contabilidad');
+    return view('contabilidad'); 
 })->name('contabilidad');
 
- 
+Route::get('/test-db-connection', function () {
+    try {
+        // Realiza una consulta de prueba
+        $results = DB::select('SELECT * FROM forma_pago');
+        return $results;
+    } catch (\Exception $e) {
+        // Maneja cualquier excepción que ocurra
+        return 'Error: ' . $e->getMessage();
+    }
+});
+
+
 Route::get('/personas', [PersonasController::class, 'index'])->name('personas.index');
 Route::get('/personas/create', [PersonasController::class, 'create'])->name('personas.create');
 Route::post('/personas/store', [PersonasController::class, 'store'])->name('personas.store');
@@ -26,8 +40,6 @@ Route::get('/personas/edit/{id}', [PersonasController::class, 'edit'])->name('pe
 Route::put('/personas/update/{id}', [PersonasController::class, 'update'])->name('personas.update');
 Route::get('/personas/show/{id}', [PersonasController::class, 'show'])->name('personas.show');
 Route::delete('/personas/destroy/{id}', [PersonasController::class, 'destroy'])->name('personas.destroy');
-
-
 
 Route::get('/login-google', function () {
     return Socialite::driver('google')->redirect();
@@ -52,6 +64,5 @@ Route::get('/google-callback', function () {
         Auth::login($userNew);
     }
 
-    return redirect('/'); // Redirigir a la página principal después de iniciar sesión
+    return redirect('/welcome'); // Redirigir a la página principal después de iniciar sesión
 });
-

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+div<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,65 +7,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Estilos personalizados */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9; /* Azul claro */
-            margin: 0;
-            padding: 0;
-        }
-        #sidebar {
-            background-color: #343a40; /* Color gris oscuro */
-            color: #fff;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            top: 0; /* Ajuste para ocupar todo el espacio vertical */
-            left: 0;
-            transition: width 0.3s;
-            overflow-y: auto;
-            z-index: 1000; /* Ajuste el índice z para superponerse */
-        }
-        #sidebar .nav-link {
-            color: #fff;
-        }
-        #content {
-            padding: 20px;
-            margin-left: 250px;
-            margin-top: 60px; /* Ajuste del margen superior para dejar espacio para la barra superior */
-            margin-bottom: 120px; /* Ajuste del margen inferior para dejar espacio para el pie de página */
-        }
-        footer.footer {
-            background-color: #343a40; /* Color gris oscuro */
-            color: #fff;
-            position: fixed; /* Fijamos el pie de página en la parte inferior */
-            bottom: 0;
-            width: calc(100% - 250px); /* Restamos el ancho de la barra lateral */
-            left: 250px; /* Ajustamos la posición para que quede al lado de la barra de la izquierda */
-            padding: 10px 0;
-            text-align: center;
-            z-index: 900; /* Aseguramos que el pie de página esté detrás de otros elementos */
-        }
-        .navbar-dark .navbar-nav .nav-link {
-            color: #fff;
-        }
-        .navbar {
-            background-color: #343a40; /* Color gris oscuro */
-            z-index: 900; /* Aseguramos que la barra de navegación esté detrás */
-            width: calc(100% - 250px); /* Restamos el ancho de la barra lateral */
-            left: 250px; /* Ajustamos la posición */
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/Style.css') }}">
+    <script src="{{ asset('JavaScript/Scripts.js') }}"></script>
 </head>
+
 <body>
     <!-- Barra de navegación superior -->
-    <nav class="navbar navbar-dark bg-dark fixed-top"> <!-- Añadido fixed-top para que sea fija en la parte superior -->
-        <div class="container">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-coins"></i> Solucredis
+                <i class="fas fa-coins"></i> GoCredit
             </a>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
@@ -84,7 +35,6 @@
                     </a>
                 </li>
             </ul>
-            
         </div>
     </nav>
 
@@ -93,33 +43,42 @@
         <div class="sidebar-sticky">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-home"></i> Inicio</a>
+                    <a class="nav-link" href="#" onclick="mostrarContenidoPrincipal()">
+                        <i class="fas fa-home"></i> Inicio
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Compras</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-cart"></i> Compras
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-dollar-sign"></i> Ventas</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-dollar-sign"></i> Ventas
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-box"></i> Control de Almacén</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-box"></i> Control de Almacén
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contabilidad') }}">
+                    <a class="nav-link" href="#" onclick="mostrarContabilidad()">
                         <i class="fas fa-calculator"></i> Contabilidad
                     </a>
                 </li>
-                
-                
-                
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Financiera</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-chart-line"></i> Financiera
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-users"></i> RRHH</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-users"></i> RRHH
+                    </a>
                 </li>
-                <!-- Otros enlaces del menú pueden ir aquí -->
             </ul>
+            
         </div>
     </nav>
 
@@ -127,20 +86,99 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-md-4" id="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1>¡Bienvenido a Solucredis!</h1>
-                    <p class="lead">Gestiona tus finanzas de manera eficiente con Solucredis.</p>
-                    <p>Te ofrecemos soluciones financieras personalizadas para tus necesidades.</p>
-                    <button class="btn btn-primary">Empezar ahora</button>
-                </div>
+                <div class="container text-center">
+                    <div class="row">
+                      <div class="col">
+                        Column
+                      </div>
+                      <div class="col">
+                        Column
+                      </div>
+                      <div class="col">
+                        Column
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </main>
+       <!-- Contenido de  contabilidad -->
+       <div id="content-contabilidad" style="display: none; text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Contabilidad</div>
+                        <div class="card-body text-primary">
+                            <p class="card-text">Catálogo de cuentas.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalCatalogoCuentas" onclick="mostrarBancos()">IR</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Crear partida</div>
+                        <div class="card-body text-primary">
+                            <p class="card-text">Crear partida.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalCatalogoCuentas" onclick="">IR</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Emitir cheque</div>
+                        <div class="card-body text-primary">
+                            <p class="card-text">Emitir cheque.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalCatalogoCuentas" onclick="">IR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Catálogo de cuentas</div>
+                        <div class="card-body text-primary">
+                            <p class="card-text">Catálogo de cuentas.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalCatalogoCuentas" onclick="">IR</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Reportes</div>
+                        <div class="card-body text-primary">
+                            <p class="card-text">Reportes.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalCatalogoCuentas" onclick="">IR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Botón para abrir el modal -->
+
+
+<!-- Contenido de bancos -->
+<div id="formulario-bancos" class="container text-center">
+ aqui tengo que agregar todo el modal de bancos ,mañana
+</div>
+
+
+
+    
+
+
+
+
+
 
     <!-- Pie de página -->
     <footer class="footer">
         <div class="container">
-            <span>© 2024 Solucredis. Todos los derechos reservados.</span>
+            <span>© 2024 GoCredit. Todos los derechos reservados.</span>
         </div>
     </footer>
 
@@ -148,5 +186,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
